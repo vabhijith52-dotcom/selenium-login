@@ -11,7 +11,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-java.time.Duration;
+import java.time.Duration;
 
 public class LoginTest {
     WebDriver driver;
