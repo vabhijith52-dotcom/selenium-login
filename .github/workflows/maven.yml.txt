@@ -1,0 +1,28 @@
+name: Selenium Java CI with Maven
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout your repository code onto the runner
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2. Set up Java JDK (Version 17 used here, match your project version)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      # 3. Run Maven Test
+      - name: Run Selenium Tests via Maven
+        run: mvn clean test
